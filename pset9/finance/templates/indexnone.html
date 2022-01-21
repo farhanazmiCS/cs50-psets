@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    IndexNone
+{% endblock %}
+
+{% block main %}
+    <body>
+        <p>You currently own no stocks.</p>
+    </body>
+    <b>CASH BALANCE: {{ cash | usd }}</b>
+{% endblock %}

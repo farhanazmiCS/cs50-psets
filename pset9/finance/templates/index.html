@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class = "table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Company</th>
+                <th>Shares Owned</th>
+                <th>Share Price</th>
+                <th>Total</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in stocks %}
+            <tr>
+                <td>{{ row.symbol }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.shares }}</td>
+                <td>{{ row.liveprice | usd }}</td>
+                <td>{{ row.total | usd }}</td>
+                <td>
+                    <a href="/buyindex">
+                        <button class="btn btn-primary" type="submit">BUY</button>
+                    </a>
+                    <a href="/sell">
+                        <button class="btn btn-primary" a href="sell.html" type="submit">SELL</button>
+                    </a>
+                </td>
+            {% endfor %}
+            </tr>
+            <tr style="font-weight:bold">
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ cash | usd }}</td>
+                <td></td>
+            </tr>
+            <tr style="font-weight:bold">
+                <td>TOTAL</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ total | usd }}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
